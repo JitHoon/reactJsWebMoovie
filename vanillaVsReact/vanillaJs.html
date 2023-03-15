@@ -1,0 +1,26 @@
+<!-- 과정 -->
+<!-- html btn, span 생성 -> element 가져오기 -> event 생성 -> event function 추가 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="text"></span>
+    <button id="count">click me</button>
+    <script>
+        const btn = document.querySelector("#count");
+        const text = document.querySelector("#text");
+        let count = 0;
+        function countClick() {
+            count += 1;
+            text.innerText = `count is ${count}`;
+        }
+        btn.addEventListener("click", countClick);
+    </script>
+</body>
+</html>

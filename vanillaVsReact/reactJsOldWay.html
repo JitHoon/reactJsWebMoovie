@@ -1,0 +1,39 @@
+<!-- 과정 : Vanilla JS 와 반대 방식 -->
+<!-- .js 에서 element 생성 -> .js 에서 element 수정 및 구현 -> HTML에 보여주기 -->
+<!-- use React.createElement() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Import React code-->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- Import React dom code-->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script>
+        const root = document.querySelector("#root");
+        // element 생성 후 바로 속성, event 등 생성 가능
+        const h3 = React.createElement(
+            "h3",
+            {
+                id:"h3",
+                onMouseEnter : () => console.log("You entered")},
+            "This is h3"
+        );
+        const btn = React.createElement(
+            "button",
+            {onClick : () => console.log("I'm clicked")},
+            "Click Me!"
+        );
+        const container = React.createElement("div", null, [h3, btn]);
+        // 생성한 elements와 속성, event 내용들을 HTML에 전송
+        ReactDOM.render(container, root);
+    </script>
+</body>
+</html>

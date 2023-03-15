@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Import React code -->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- Import React dom code -->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- Import Babel code -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- type="text/babel" -->
+    <script type="text/babel">
+        const root = document.querySelector("#root");
+        // 함수 형태로 선언해야 변수로 사용할 수 있다. 첫 글자는 대문자
+        const H3 = () => (
+            <h3 id="h3" onMouseEnter={() => console.log("You entered")}
+                >
+                Hello I'm h3
+            </h3>
+            );
+        const Btn = () => (
+            <button 
+                style={
+                    {backgroundColor: "tomato"}
+                }
+                onClick={() => console.log("I'm clicked")}
+                >
+                Click Me!
+            </button>
+        );
+        // 변수 사용 시 첫 글자는 대문자
+        const Container = () => (
+            <div>
+                
+                <H3 />
+                <Btn />
+            </div>
+        );
+        ReactDOM.render(<Container />, root);
+    </script>
+</body>
+</html>
