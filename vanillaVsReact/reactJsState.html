@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Import React code -->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- Import React dom code -->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- Import Babel code -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- type="text/babel" -->
+    <script type="text/babel">
+        function App() {
+            // React.useState() 를 활용하여 state 생성 및 state 변환 함수를 가져올 수 있다.
+            const [counter, setCounter] = React.useState(0);
+            // state 변환 함수의 () 안에 state 변환 알고리즘을 작성 할 수 있다.
+            const onClick = () => {setCounter(counter+1);};
+
+            // react js에서 변수는 {변수} 로 사용할 수 있다.
+            return (
+                <div>
+                    <h3>clicked: {counter}</h3>
+                    <button onClick={onClick}>Click</button>
+                </div>
+                );
+        };
+        const root = document.querySelector("#root");
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>
