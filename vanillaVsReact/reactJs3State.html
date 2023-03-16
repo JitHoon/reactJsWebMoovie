@@ -20,7 +20,10 @@
             // React.useState() 를 활용하여 state 생성 및 state 변환 함수를 가져올 수 있다.
             const [counter, setCounter] = React.useState(0);
             // state 변환 함수의 () 안에 state 변환 알고리즘을 작성 할 수 있다.
-            const onClick = () => {setCounter(counter+1);};
+            const onClick = () => {
+                // setCounter(counter+1);
+                setCounter((current) => current + 1);
+            };
 
             // react js에서 변수는 {변수} 로 사용할 수 있다.
             return (
