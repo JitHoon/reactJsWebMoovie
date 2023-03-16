@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Import React code -->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.developer.min.js"></script>
+    <!-- Import React dom code -->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- Import Babel code -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- type="text/babel" -->
+    <script type="text/babel">
+        function App() {
+            return (
+                // 아래 문법 중 for과 class는 HTML에서 문제가 되지않지만 
+                // JS에서 이미 내장값으로 사용 중인 문법이므로 <script> 안 JSX 코드로 사용할 수 없다.
+                // Import React code가 developer.min.js 일 때 오류 발생.
+                // class => className, for => htmlFor
+                <div>
+                    <h1 className="nope"></h1>
+                    <label htmlFor="minutes"></label>
+                    <input id="minutes" type="number" placeholder="Minutes" />
+                    <label htmlFor="hours"></label>
+                    <input id="hours" type="number" placeholder="Hours" />
+                </div>
+                );
+        };
+        const root = document.querySelector("#root");
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>
