@@ -17,7 +17,7 @@
     <!-- type="text/babel" -->
     <script type="text/babel">
         // props : object 형식으로 부모 component에서 값을 받아올 수 있다.
-        function Btn ({btnName, big}) {
+        function Btn ({btnName, big, changValue}) {
             return (
                 <button style={{
                     color: "white",
@@ -28,17 +28,24 @@
                     // props를 사용하여 js 조건문으로도 사용할 수 있다.
                     fontSize: big ? 18:10,
                 }}
+                // 부모 component에서 한수를 받아와 click event를 실행
+                onClick={changValue}
                 >
                 {btnName}
                 </button>
                 );
         };
         function App() {
-            // 내가 지정한 props의 이름을 속성처럼 적고 자식 component로 넘겨줄 수 있다.
+            // 내가 지정한 props의 이름을 속성처럼 적고 자식 component로 넘겨줄 수 있다. (문자, 함수 등 다양한 변수를 넘겨줄 수 있다.)
+            // component안의 속성같은 문자들은 모두 인자이다. 
+            // component안의 onClick은 event listener가 될 수 없다.
+            const [value, setValue]=React.useState("change value??");
+            const changeValue = () => setValue("change value!!");
             return (
                 <div>
                     <Btn btnName="Edit" big={true}/>
                     <Btn btnName="Save" big={false}/>
+                    <Btn btnName={value} big={false} changValue={changeValue}/>
                 </div>
                 );
         };
