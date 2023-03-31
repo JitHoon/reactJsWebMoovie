@@ -35,6 +35,9 @@
                 </button>
                 );
         };
+        // change btn을 제외한 나머지 btn는 변화하지 않기 때문에
+        //  React.memo()를 활용하여 App() 내의 모든 component를 rerendering하지 않아도 된다.
+        const memoBtn = React.memo(Btn);
         function App() {
             // 내가 지정한 props의 이름을 속성처럼 적고 자식 component로 넘겨줄 수 있다. (문자, 함수 등 다양한 변수를 넘겨줄 수 있다.)
             // component안의 속성같은 문자들은 모두 인자이다. 
