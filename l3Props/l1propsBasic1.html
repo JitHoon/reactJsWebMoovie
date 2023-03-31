@@ -11,7 +11,9 @@
     <!-- Import React code -->
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <!-- Import React dom code -->
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- Import React Prop Types -->
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <!-- Import Babel code -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!-- type="text/babel" -->
@@ -38,6 +40,15 @@
         // change btn을 제외한 나머지 btn는 변화하지 않기 때문에
         //  React.memo()를 활용하여 App() 내의 모든 component를 rerendering하지 않아도 된다.
         const memoBtn = React.memo(Btn);
+        // component의 prop type을 잘못 넘겨줬을 경우를 대비하여 type을 지정해주고 error를 받을 수 있음
+        // 함수이름.propTypes = {};
+        // memo를 사용했다면 memo변수.propTypes = {};
+        // https://legacy.reactjs.org/docs/typechecking-with-proptypes.html
+        memoBtn.PropTypes = {
+            btnName: PropTypes.string.isRequired,
+            big: PropTypes.bool.isRequired,
+            changValue: PropTypes.func
+        };
         function App() {
             // 내가 지정한 props의 이름을 속성처럼 적고 자식 component로 넘겨줄 수 있다. (문자, 함수 등 다양한 변수를 넘겨줄 수 있다.)
             // component안의 속성같은 문자들은 모두 인자이다. 
